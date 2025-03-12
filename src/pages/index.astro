@@ -1,11 +1,67 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import Header from "../components/Header.astro";
+import Hero from "../components/Hero.astro";
+import Section from "../components/Section.astro";
+import Carousel from "../components/Carousel.astro";
+import Footer from "../components/Footer.astro";
+import Layout from "../layouts/Layout.astro";
+const partenaires = [
+	{
+		nom: "Société Générale",
+		description: "Sponsoring bancaire pour soutenir le festival.",
+		logoUrl: "/societe-generale.svg",
+	},
+	{
+		nom: "Décathlon Belfort",
+		description:
+			"Partenaire pour des goodies ou activités sportives associées.",
+		logoUrl: "/decathlon.png",
+	},
+	{
+		nom: "France 3 Bourgogne",
+		description: "Couverture médiatique régionale du festival.",
+		logoUrl: "/france3.svg",
+	},
+	{
+		nom: "Mairie de Giromagny",
+		description: "Support local et logistique.",
+		logoUrl: "/giromagny.png",
+	},
+];
+import imageAccueil from "../assets/imageaccueil.webp";
 ---
 
 <Layout>
-	<Welcome />
+	<Hero
+		title="Cinémagny"
+		subtitle="Votre festival de cinéma à Giromagny du 12 au 16 novembre"
+		buttonText="Je réserve mes billets !"
+		imageSrc={imageAccueil}
+	/>
+	<Section
+		title="Explorez le Programme des films"
+		description="Découvrez la programmation complète des films du festival : avant-premières, projections spéciales et rétrospectives. Filtrez par date ou catégorie pour ne rien manquer !"
+		link="/films"
+		linkText="Voir le programme"
+	/>
+	<Section
+		title="Explorez le Programme des activités"
+		description="Découvrez la programmation complète des activités du festival : ateliers, conférences, rencontres et bien plus encore. Filtrez par date ou catégorie pour ne rien manquer !"
+		link="/activitees"
+		linkText="Voir le programme"
+	/>
+	<Section
+		title="Infos pratiques"
+		description="Le festival Cinémagny se tient à Giromagny, dans le Territoire de Belfort, entre montagnes et forêts, offrant un cadre naturel parfait pour une expérience cinématographique unique."
+		link="/infos"
+		linkText="Infos pratiques"
+	/>
+	<Section
+		title="Les invités"
+		description="Découvrez la liste complète des invités du festival, comprenant réalisateurs, acteurs et membres du jury, qui feront de cet événement un moment inoubliable."
+		link="/invites"
+		linkText="Voir le invités"
+	/>
+	{console.log(partenaires)}
+	<Carousel partenaires={partenaires} />
 </Layout>

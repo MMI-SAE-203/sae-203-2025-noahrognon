@@ -1,0 +1,44 @@
+---
+const tarifs = [
+    {
+        titre: "Pass journée",
+        description:
+            "Offre un accès à toutes les projections et événements sur une journée de votre choix. Gratuit pour les moins de 12 ans.",
+        prix: "13 €",
+    },
+    {
+        titre: "Pass complet",
+        description:
+            "Permet de profiter de l’intégralité du festival, incluant tous les films, ateliers et conférences pendant les 5 jours.",
+        prix: "50 €",
+    },
+    {
+        titre: "Pass étudiant",
+        description:
+            "Tarif réduit pour les étudiants sur présentation d’une carte étudiante. Disponible en version « jour » ou « complet ».",
+        prix: "8 € (par jour) / 30 € (complet)",
+    },
+    {
+        titre: "Pass famille",
+        description:
+            "Spécialement conçu pour les familles, avec un accès à toutes les projections pour 2 adultes et 2 enfants.",
+        prix: "40 € (par jour)",
+    },
+];
+---
+
+<section class="bg-[#FAF7E7] py-8 px-6 max-w-2xl mx-auto">
+    <div class="space-y-6">
+        {
+            tarifs.map((tarif) => (
+                <div>
+                    <h3 class="font-bold text-lg text-gray-900">
+                        {tarif.titre} :
+                    </h3>
+                    <p class="text-gray-800 text-md">{tarif.description}</p>
+                    <p class="font-bold text-md mt-1">Prix : {tarif.prix}</p>
+                </div>
+            ))
+        }
+    </div>
+</section>

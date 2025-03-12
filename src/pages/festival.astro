@@ -1,0 +1,109 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Hero from "../components/Hero.astro";
+import ImageFestival from "../assets/imagefestival.webp";
+import Section from "../components/Section.astro";
+import MembresOrganisateurs from "../components/mebresorganisateurs.astro";
+
+const membres = [
+    {
+        nom: "Léo Martin",
+        role: "Coordinateur logistique",
+        photo: "../../public/equipe1.jpg",
+    },
+    {
+        nom: "Antoine Lambert",
+        role: "Responsable des partenariats",
+        photo: "../../public/equipe2.jpg",
+    },
+    {
+        nom: "Luc Dubois",
+        role: "Directeur artistique",
+        photo: "../../public/equipe3.jpg",
+    },
+    {
+        nom: "Sofia Bernard",
+        role: "Chargée de communication",
+        photo: "../../public/equipe4.jpg",
+    },
+];
+---
+
+<Layout>
+    <Hero
+        title="Cinémagny c'est quoi ?"
+        subtitle="Festival de cinéma depuis 2018"
+        buttonText="Je veut voir la proggramation"
+        imageSrc={ImageFestival}
+        alt="Cinémagny Festival"
+    />
+    <p
+        class="text-center max-w-3xl mx-auto text-lg lg:text-xl font-medium leading-relaxed lg:leading-loose text-gray-900"
+    >
+        Cinémagny, le Festival Audiovisuel Indépendant à Giromagny. Cinémagny
+        est un festival dédié à la célébration du cinéma indépendant, offrant
+        une plateforme unique aux réalisateurs émergents et aux films innovants.
+        Organisé dans la charmante ville de Giromagny, le festival vise à mettre
+        en lumière des œuvres originales, souvent méconnues, et à offrir une
+        expérience cinématographique authentique et écoresponsable à un public
+        passionné.
+    </p>
+    <h2 class="text-center">Nos valeurs</h2>
+    <h3>Authenticité</h3>
+    <p
+        class="text-center max-w-4xl mx-auto text-lg lg:text-xl font-medium leading-relaxed lg:leading-loose text-gray-900 bg-[#FCEFC3] p-6 rounded-lg shadow-md items-center"
+    >
+        Nous mettons en avant des talents locaux et internationaux, en soutenant
+        les œuvres qui sortent des sentiers battus. Le festival est un lieu de
+        rencontre entre artistes, professionnels de l’audiovisuel et amateurs de
+        cinéma, offrant une expérience culturelle immersive et authentique.
+    </p>
+    <h3>Écoresponsabilité</h3>
+    <p
+        class="text-center max-w-3xl mx-auto text-lg lg:text-xl font-medium leading-relaxed lg:leading-loose text-gray-900 bg-[#FCEFC3] p-6 rounded-lg shadow-md items-center"
+    >
+        Sensible aux enjeux environnementaux, Cinémagny s'engage à minimiser son
+        impact écologique. Cela passe par des actions concrètes telles que
+        l'utilisation de matériaux recyclés pour la communication, la réduction
+        des déchets, et la promotion de moyens de transport durables comme le
+        covoiturage.e.
+    </p>
+    <h3>Éducation</h3>
+    <p
+        class="text-center max-w-3xl mx-auto text-lg lg:text-xl font-medium leading-relaxed lg:leading-loose text-gray-900 bg-[#FCEFC3] p-6 rounded-lg shadow-md items-center"
+    >
+        Le festival a également pour mission d'éduquer et de sensibiliser le
+        public à l’audiovisuel à travers des conférences, des ateliers pratiques
+        et des rencontres avec des réalisateurs. Ces initiatives visent à
+        enrichir la compréhension du cinéma et à encourager les jeunes talents.
+    </p>
+    <h2>Histoire du festival</h2>
+    <p
+        class="text-center max-w-3xl mx-auto text-lg lg:text-xl font-medium leading-relaxed lg:leading-loose text-gray-900 bg-[#FCEFC3] p-6 rounded-lg shadow-md items-center"
+    >
+        Le festival Cinémagny a été fondé en 2018 par une équipe de passionnés
+        de cinéma, désireux de créer un événement qui célèbre la diversité et la
+        créativité du cinéma indépendant. Depuis sa création, le festival a
+        connu une croissance constante, attirant un public toujours plus large
+        et diversifié.
+    </p>
+    <h2>Édition 2023</h2>
+    <p
+        class="text-center max-w-3xl mx-auto text-lg lg:text-xl font-medium leading-relaxed lg:leading-loose text-gray-900 bg-[#FCEFC3] p-6 rounded-lg shadow-md items-center"
+    >
+        L'édition 2023 du festival se déroulera du 12 au 16 novembre à
+        Giromagny. Au programme : projections de films
+    </p>
+    <h2>Notre equipe</h2>
+    <p
+        class="text-center max-w-3xl mx-auto text-lg lg:text-xl font-medium leading-relaxed lg:leading-loose text-gray-900 bg-[#FCEFC3] p-6 rounded-lg shadow-md items-center"
+    >
+        Une organisation portée par des passionnésCinémagny est organisé par une
+        équipe dévouée, composée de professionnels de l’audiovisuel, d’artistes,
+        et de bénévoles passionnés. Notre objectif est de créer un espace où le
+        public peut découvrir des œuvres novatrices tout en partageant des
+        moments d’échange autour du 7ᵉ art.
+    </p>
+    <h2>Membres Organisateurs</h2>
+    <MembresOrganisateurs membres={membres} />
+</Layout>

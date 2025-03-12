@@ -1,0 +1,35 @@
+@import "tailwindcss";
+@theme {
+    --font-serif: 'Playfair Display', serif;
+    --font-sans: 'Lora', sans-serif;
+
+}
+@layer components {
+    .noscroll {
+        @apply overflow-hidden;
+    }
+
+    .container {
+        @apply max-w-screen-xl mx-auto px-6;
+    }
+}
+@layer base {
+    body {
+        @apply bg-[#FAF7E7];
+        
+    }
+}    h1 {
+        @apply text-4xl lg:text-6xl font-bold text-[#806B13] mb-4 font-serif;
+    }
+     h2 {
+        @apply text-2xl lg:text-4xl font-bold text-[#806B13] mb-2 font-sans p-6 ml-8 text-center;
+    }
+    h3 {
+        @apply text-xl lg:text-3xl font-bold text-[#806B13] mb-2 font-sans p-6 ml-8 text-center;
+    }
+        a {
+            @apply hover:text-blue-900 font-sans;
+        }
+        p {
+            @apply text-lg lg:text-xl text-black mb-4 font-sans  text-center;
+        }

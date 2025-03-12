@@ -1,0 +1,23 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Tarifs from "../components/Tarifs.astro";
+import Hero from "../components/Hero.astro";
+import Imageinfo from "../assets/imageinfo.webp";
+import Giromagny from "../components/Giromagny.astro";
+import Carousel from "../components/Carousel.astro";
+---
+
+<Layout>
+    <Hero
+        title="Informations pratiques"
+        subtitle="Tout ce que vous devez savoir"
+        buttonText="Je veut voir la proggramation"
+        imageSrc={Imageinfo}
+        alt="Cinémagny Festival"
+    />
+    <h2>Tarifs</h2>
+    <Tarifs />
+    <h2>Le lieu: Giromagny</h2>
+    <Giromagny />
+    <h2>Lieu principal du festival : Espace la Savoureuse</h2>
+</Layout>

@@ -1,0 +1,32 @@
+---
+import { Picture } from "astro:assets";
+import villeImage from "../assets/infopratqiuemairie.webp"; 
+---
+
+<section class="bg-[#FAF7E7] py-12 px-6 max-w-3xl mx-auto text-center">
+    <!-- Image de présentation -->
+    <Picture
+            src={villeImage}
+            alt=""
+            class="w-full rounded-2xl "
+            loading="lazy"
+        />
+    </Picture>
+
+    <!-- Texte descriptif -->
+    <p class="text-lg italic text-gray-900 leading-relaxed mt-6">
+        <span class="font-semibold"
+            >Un cadre unique entre nature et culture</span
+        >
+        <br />
+        Giromagny, une ville au <span class="italic"
+            >cœur du Territoire de Belfort</span
+        >, est l’écrin parfait pour accueillir Cinémagny. Nichée entre montagnes
+        et forêts, la ville offre un cadre naturel magnifique qui s'accorde
+        parfaitement avec l’esprit écoresponsable du festival. De plus, sa
+        proximité avec des villes comme Belfort permet une accessibilité facile
+        pour les visiteurs tout en conservant une <span class="font-semibold"
+            >atmosphère intimiste et conviviale.</span
+        >
+    </p>
+</section>

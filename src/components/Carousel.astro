@@ -1,0 +1,60 @@
+---
+console.log(Astro.props); // Vérifie si Astro transmet bien les props
+const { partenaires } = Astro.props;
+console.log(partenaires); // Vérifie si partenaires est bien reçu
+---
+
+<div
+    x-data="{ partenaires: [], index: 0 }"
+    x-init="partenaires = JSON.parse($el.dataset.partenaires)"
+    data-partenaires={JSON.stringify(partenaires)}
+    class="mt-12 px-4 mb-12" >
+    
+    <h2 class="text-4xl font-bold text-center text-blue-900 mb-8">Nos Partenaires</h2>
+        
+    </h2>
+
+    <template x-if="partenaires.length > 0">
+        <div
+            class="flex flex-col items-center bg-[#ABCEAC] shadow-lg p-8 rounded-xl border border-gray-300 w-full max-w-xl lg:max-w-3xl mx-auto text-center"
+        >
+            <!-- Logo du partenaire -->
+            <img x-bind:src="partenaires[index].logoUrl"
+                alt="Logo du partenaire"
+                class="w-32 h-32 object-contain mt-2"
+            />
+
+            <!-- Nom du partenaire -->
+            <h3 class="text-3xl font-semibold !text-gray-900 mt-4">
+                <span x-text="partenaires[index].nom"></span>
+            </h3>
+
+            <!-- Description du partenaire -->
+            <p class="text-gray-700 mt-4 text-lg">
+                <span x-text="partenaires[index].description"></span>
+            </p>
+
+            <!-- Boutons de navigation -->
+            <div class="flex gap-6 mt-8">
+                <button
+                    @click="index = (index === 0 ? partenaires.length - 1 : index - 1)"
+                    class="bg-white text-black px-6 py-3 rounded-full shadow-md hover:bg-white transition text-lg"
+                >
+                    Précédent
+                </button>
+                <button
+                    @click="index = (index === partenaires.length - 1 ? 0 : index + 1)"
+                    class="bg-white text-black px-6 py-3 rounded-full shadow-md hover:bg-white transition text-lg"
+                >
+                    Suivant
+                </button>
+            </div>
+        </div>
+    </template>
+
+    <template x-if="partenaires.length === 0">
+        <p class="text-center text-gray-500 mt-4">
+            Aucun partenaire disponible.
+        </p>
+    </template>
+</div>
