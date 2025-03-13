@@ -25,3 +25,5 @@ pnpm-debug.log*
 
 backend/pocketbase/pocketbase
 backend/pocketbase/pocketbase.exe
+# Local Netlify folder
+.netlify
