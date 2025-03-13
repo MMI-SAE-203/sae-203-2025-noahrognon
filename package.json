@@ -12,7 +12,8 @@
     "@astrojs/netlify": "^6.2.3",
     "@tailwindcss/vite": "^4.0.12",
     "alpinejs": "^3.14.8",
-    "astro": "^5.4.2"
+    "astro": "^5.4.2",
+    "pocketbase": "^0.25.2"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.21",
