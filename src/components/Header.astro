@@ -44,7 +44,6 @@ const currentPath = Astro.url.pathname;
     </nav>
 </header>
 
-<!-- Menu mobile -->
 <nav
     id="menu"
     class="flex-1 px-6 py-12 flex justify-between mt-20 flex-col fixed z-10 inset-0 bg-[#FAF7E7] visible opacity-100 max-lg:aria-hidden:invisible max-lg:aria-hidden:opacity-0 lg:mt-0 lg:flex-row lg:static lg:bg-transparent lg:py-6 lg:visible lg:opacity-100 hidden"
@@ -63,28 +62,28 @@ const currentPath = Astro.url.pathname;
 </nav>
 
 <script>
-    // On cible les éléments à modifier
+    
     const toggle = document.querySelector("#menu-btn");
     const nav = document.querySelector("#menu");
     const closeBtn = document.querySelector("#close-btn");
     const page = document.body;
 
-    // Vérifier si les éléments existent avant d'ajouter l'événement
+   
     if (toggle && nav) {
         toggle.addEventListener("click", () => {
             const isOpen = toggle.ariaExpanded === "true";
             const isClosed = !isOpen;
-            // Mise à jour des attributs ARIA pour accessibilité
+            
             toggle.ariaExpanded = String(isClosed);
             nav.ariaHidden = String(isOpen);
             page.classList.toggle("noscroll", isClosed);
 
-            // Affichage du menu mobile
+            
             nav.classList.toggle("hidden");
         });
     }
 
-    // Fermeture du menu mobile avec le bouton "❮"
+    
     if (closeBtn) {
         closeBtn.addEventListener("click", () => {
             nav.classList.add("hidden");

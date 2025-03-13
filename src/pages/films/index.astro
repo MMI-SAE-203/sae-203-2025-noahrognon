@@ -5,7 +5,7 @@ import FilmCard from "../../components/Filmcard.astro";
 
 const films = await getFilms();
 
-// Extraire les genres et langues uniques
+
 const genres = [...new Set(films.map((film) => film.genre))];
 const langues = [...new Set(films.map((film) => film.langue))];
 ---
@@ -33,7 +33,7 @@ const langues = [...new Set(films.map((film) => film.langue))];
             </select>
         </div>
 
-        <!-- Liste des films -->
+       
         <div
             id="films-container"
             class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 max-w-6xl mx-auto"

@@ -4,24 +4,20 @@ import Button from "../components/Button.astro";
 ---
 
 <div class="bg-white shadow-lg rounded-lg p-8 text-center">
-    <!-- Image de l'invité -->
     <img
         src={invite.imageUrl}
         alt={"Photo de " + invite.prenom + " " + invite.nom}
         class="w-32 h-32 mx-auto rounded-full object-cover shadow-md"
     />
 
-    <!-- Nom et rôle -->
     <h2 class="text-3xl font-bold text-gray-900 mt-4">
         {invite.prenom}
         {invite.nom}
     </h2>
     <p class="text-gray-700 text-lg italic">{invite.role}</p>
 
-    <!-- Biographie -->
     <p class="mt-4 text-gray-600">{invite.bio}</p>
 
-    <!-- Film ou Activité associé -->
     {
         event ? (
             <div class="mt-6 bg-gray-100 p-4 rounded-lg shadow-md">
@@ -48,6 +44,5 @@ import Button from "../components/Button.astro";
         )
     }
 
-    <!-- Bouton Retour -->
     <Button link="/invite" linkText="Retour aux invités" />
 </div>

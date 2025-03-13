@@ -9,8 +9,8 @@ import CardDetails from "../../components/Cardsdetails.astro";
 export const prerender = false;
 const { id } = Astro.params;
 const invite = await getInvite(id);
-const events = (await getActivitesAndFilmsById(id)) || []; // Toujours un tableau
-const event = events.length > 0 ? events[0] : null; // On prend le premier élément s'il existe
+const events = (await getActivitesAndFilmsById(id)) || []; 
+const event = events.length > 0 ? events[0] : null; 
 ---
 
 <Layout>
