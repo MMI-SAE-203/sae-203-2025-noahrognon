@@ -1,0 +1,20 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import {
+    getInvite,
+    getActivitesAndFilmsById,
+} from "../../../backend/backend.mjs";
+import CardDetails from "../../components/Cardsdetails.astro";
+
+export const prerender = false;
+const { id } = Astro.params;
+const invite = await getInvite(id);
+const events = (await getActivitesAndFilmsById(id)) || []; // Toujours un tableau
+const event = events.length > 0 ? events[0] : null; // On prend le premier élément s'il existe
+---
+
+<Layout>
+    <section class="py-12 px-6 max-w-3xl mx-auto">
+        <CardDetails invite={invite} event={event} />
+    </section>
+</Layout>

@@ -1,0 +1,107 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Hero from "../components/Hero.astro";
+import Imagecontact from "../assets/contact1.webp";
+import IconYoutube from "../assets/icons/iconyoutube.svg";
+import IconInstagram from "../assets/icons/iconinstagram.svg";
+import IconTiktok from "../assets/icons/iconetiktok.svg";
+import IconFacebook from "../assets/icons/iconfacebook.svg";
+---
+
+<Layout>
+    <Hero
+        title="Contact"
+        subtitle="Contactez-nous pour toute question ou information"
+        buttonText="Je veux voir la programmation"
+        imageSrc={Imagecontact}
+    />
+    <section class="max-w-4xl mx-auto py-12 px-6">
+        <!-- Titre -->
+        <h1 class="text-4xl font-bold text-blue-900 mb-6">Contact</h1>
+        <h2 class="text-2xl font-bold text-blue-900 mb-4">
+            Formulaire de contact
+        </h2>
+
+        <!-- Formulaire -->
+        <form class="space-y-4">
+            <input
+                type="text"
+                placeholder="Nom"
+                class="w-full border-b border-gray-500 bg-transparent py-2 text-gray-700 placeholder-gray-500 focus:outline-none"
+            />
+            <input
+                type="text"
+                placeholder="Prénom"
+                class="w-full border-b border-gray-500 bg-transparent py-2 text-gray-700 placeholder-gray-500 focus:outline-none"
+            />
+            <input
+                type="email"
+                placeholder="Email"
+                class="w-full border-b border-gray-500 bg-transparent py-2 text-gray-700 placeholder-gray-500 focus:outline-none"
+            />
+            <input
+                type="text"
+                placeholder="Sujet"
+                class="w-full border-b border-gray-500 bg-transparent py-2 text-gray-700 placeholder-gray-500 focus:outline-none"
+            />
+            <textarea
+                placeholder="Message"
+                class="w-full border-b border-gray-500 bg-transparent py-2 text-gray-700 placeholder-gray-500 focus:outline-none"
+            ></textarea>
+
+            <!-- Bouton d'envoi -->
+            <button
+                class="flex items-center gap-2 bg-white border-4 border-[#9FC49D] px-6 py-2 rounded-lg shadow-md transition duration-300 hover:bg-gray-100 mx-auto"
+            >
+                <span>➜</span>
+                <span class="font-bold">Envoyer</span>
+            </button>
+        </form>
+
+        <!-- Coordonnées -->
+        <div class="mt-12">
+            <h2 class="text-2xl font-bold text-blue-900 mb-2">Coordonnées</h2>
+            <p class="text-lg text-gray-800">03 81 67 14 89</p>
+            <a
+                href="mailto:cinemagny.contact@gmail.com"
+                class="text-lg text-black underline text-center justify-center items-center"
+                >cinemagny.contact@gmail.com</a
+            >
+
+            <div class="mt-4">
+                <h3 class="text-xl font-bold text-black">
+                    Bureaux du Festival
+                </h3>
+                <p class="text-gray-800">
+                    Cinémagny<br />
+                    Hôtel de Ville de Giromagny<br />
+                    Place du 11 Novembre, 90200 Giromagny, France.
+                </p>
+            </div>
+        </div>
+
+    
+    </section>
+    <ul class="flex gap-12 justify-center">
+        <li>
+            <a href="https://facebook.com" aria-label="Facebook"
+                ><IconFacebook /></a
+            >
+        </li>
+        <li>
+            <a href="https://instagram.com" aria-label="Instagram"
+                ><IconInstagram /></a
+            >
+        </li>
+        <li>
+            <a href="https://youtube.com" aria-label="Youtube"
+                ><IconYoutube /></a
+            >
+        </li>
+        <li>
+            <a href="https://linkedin.com" aria-label="Linkedin"
+                ><IconTiktok /></a
+            >
+        </li>
+    </ul>
+</Layout>

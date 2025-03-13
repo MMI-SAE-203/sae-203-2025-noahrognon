@@ -1,0 +1,26 @@
+---
+const { id, titre, date, type } = Astro.props;
+---
+
+<a
+    href={`/activite/${id}`}
+    class="block bg-white shadow-lg rounded-lg overflow-hidden transform transition hover:scale-105 p-4"
+    data-type={type}
+>
+    <div class="text-center">
+        <h3 class="text-xl font-semibold text-gray-900">{titre}</h3>
+        <p class="text-gray-700 text-sm">
+            {
+                new Date(date).toLocaleString("fr-FR", {
+                    weekday: "long",
+                    year: "numeric",
+                    month: "long",
+                    day: "numeric",
+                    hour: "2-digit",
+                    minute: "2-digit",
+                })
+            }
+        </p>
+        <p class="text-gray-500 text-xs mt-1 uppercase">{type}</p>
+    </div>
+</a>

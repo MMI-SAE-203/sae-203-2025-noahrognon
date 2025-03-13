@@ -4,7 +4,9 @@ import Tarifs from "../components/Tarifs.astro";
 import Hero from "../components/Hero.astro";
 import Imageinfo from "../assets/imageinfo.webp";
 import Giromagny from "../components/Giromagny.astro";
-import Carousel from "../components/Carousel.astro";
+import ImageCarousel from "../components/Imagecarousel.astro";
+import Localisation from "../components/Localisation.astro";
+import FAQ from "../components/FAQ.astro";
 ---
 
 <Layout>
@@ -20,4 +22,108 @@ import Carousel from "../components/Carousel.astro";
     <h2>Le lieu: Giromagny</h2>
     <Giromagny />
     <h2>Lieu principal du festival : Espace la Savoureuse</h2>
-</Layout>
+    <ImageCarousel />
+    <Localisation
+        title="Localisation - Espace La Savoureuse"
+        mapSrc="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d9711.650937340895!2d6.8220083!3d47.7439953!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x479230c5e211fee7%3A0x59b642ca85b644a4!2sCentre%20socioculturel%20la%20haute%20Savoureuse!5e1!3m2!1sfr!2sfr!4v1734095375606!5m2!1sfr!2sfr"
+    />
+
+    <Localisation
+        title="Localisation - Salle du Conseil Municipal"
+        mapSrc="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4856.02689194737!2d6.819664786065619!3d47.74183599169554!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x479230c89cacc671%3A0x15a1057448c1f7eb!2sMairie%20Giromagny!5e1!3m2!1sfr!2sfr!4v1734096167438!5m2!1sfr!2sfr"
+    />
+    <h2>Comment venir ?</h2>
+    <section class="p-6 rounded-lg shadow-md max-w-3xl mx-auto">
+        <div class="space-y-4 text-gray-900">
+            <!-- Voiture -->
+            <div>
+                <h3 class="font-bold text-lg">Voiture :</h3>
+                <ul class="list-disc pl-5 text-gray-800">
+                    <li>
+                        <span class="font-semibold">Stationnement :</span> "Des parkings
+                        gratuits seront disponibles près des lieux du festival. Pensez
+                        à arriver tôt pour trouver une place."
+                    </li>
+                </ul>
+            </div>
+
+            <div>
+                <h3 class="font-bold text-lg">Transports en commun :</h3>
+                <ul class="list-disc pl-5 text-gray-800">
+                    <li>
+                        <span class="font-semibold">Train :</span> Gare la plus proche
+                        : Belfort-Ville (à 13 km). Des navettes seront disponibles
+                        entre la gare de Belfort et Giromagny.
+                    </li>
+                    <li>
+                        <span class="font-semibold">Bus :</span> Réseau Optymo (lignes
+                        locales reliant Belfort à Giromagny).
+                    </li>
+                </ul>
+            </div>
+
+            <div>
+                <h3 class="font-bold text-lg">Covoiturage :</h3>
+                <ul class="list-disc pl-5 text-gray-800">
+                    <li>
+                        Nous encourageons les festivaliers à opter pour des
+                        solutions de transport durable. Partagez un trajet avec
+                        d'autres participants via la plateforme de covoiturage
+                        choisie.
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    <h2>Hébèrgement</h2>
+    <section class="p-6 rounded-lg shadow-md max-w-3xl mx-auto">
+        <div class="space-y-4 text-gray-900">
+            <!-- Voiture -->
+            <div>
+                <h3 class="font-bold text-lg">Options d’hébergement :</h3>
+                <ul class="list-disc pl-5 text-gray-800">
+                    <li>
+                        <span class="font-semibold">Hôtel de la Vallée</span> Distance
+                        : ~1 km du centre de Giromagny
+                    </li>
+                    <li>
+                        <span class="font-semibold"
+                            >Hotel-Restaurant Au Logis des Ours</span
+                        > Distance : ~10 km (Belfort)
+                    </li>
+                </ul>
+            </div>
+
+            <div>
+                <h3 class="font-bold text-lg">Gites Locaux</h3>
+                <ul class="list-disc pl-5 text-gray-800">
+                    <li>
+                        <span class="font-semibold"
+                            >Chambres d’hôtes Les Hauts de Belfort
+                        </span>
+                        <li>
+                            <span class="font-semibold"
+                                >Campings : Camping du Lac de Malsaucy , Camping
+                                des Ballastières, Camping de l'Étang des Forges
+                            </span>
+                        </li>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    <h2>FAQ pratique</h2>
+    <FAQ />
+    <h2>Contact</h2>
+    <section class="bg-[#FAF7E7] py-8 px-6 max-w-2xl mx-auto">
+        <div class="space-y-6 text-gray-900">
+            <p class="text-lg italic">
+                Pour toute question ou information supplémentaire, n'hésitez pas
+                à nous contacter à l'adresse suivante :{
+                    "cinemagny.contact@gmail.com"
+                }
+                
+            </p>
+        </div>
+    </section></Layout
+>

@@ -1,0 +1,83 @@
+---
+import { getFilms } from "../../../backend/backend.mjs";
+import Layout from "../../layouts/Layout.astro";
+import FilmCard from "../../components/Filmcard.astro";
+
+const films = await getFilms();
+
+// Extraire les genres et langues uniques
+const genres = [...new Set(films.map((film) => film.genre))];
+const langues = [...new Set(films.map((film) => film.langue))];
+---
+
+<Layout>
+    <section class="py-12 px-6 bg-[#FAF7E7]">
+        <h2 class="text-3xl font-bold text-center text-blue-900 mb-8">
+            Nos Films
+        </h2>
+
+        <!-- Filtres -->
+        <div class="flex justify-center gap-4 mb-8">
+            <select id="filter-genre" class="border p-2 rounded-lg">
+                <option value="">Tous les genres</option>
+                {genres.map((genre) => <option value={genre}>{genre}</option>)}
+            </select>
+
+            <select id="filter-langue" class="border p-2 rounded-lg">
+                <option value="">Toutes les langues</option>
+                {
+                    langues.map((langue) => (
+                        <option value={langue}>{langue}</option>
+                    ))
+                }
+            </select>
+        </div>
+
+        <!-- Liste des films -->
+        <div
+            id="films-container"
+            class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 max-w-6xl mx-auto"
+        >
+            {
+                films.map((film) => (
+                    <FilmCard
+                        id={film.id}
+                        titre={film.titre}
+                        imageUrl={film.imageUrl}
+                        genre={film.genre}
+                        langue={film.langue}
+                    />
+                ))
+            }
+        </div>
+    </section>
+</Layout>
+
+<script>
+    document
+        .getElementById("filter-genre")
+        .addEventListener("change", filterFilms);
+    document
+        .getElementById("filter-langue")
+        .addEventListener("change", filterFilms);
+
+    function filterFilms() {
+        const selectedGenre = document.getElementById("filter-genre").value;
+        const selectedLangue = document.getElementById("filter-langue").value;
+        const films = document.querySelectorAll("#films-container a");
+
+        films.forEach((film) => {
+            const genre = film.getAttribute("data-genre");
+            const langue = film.getAttribute("data-langue");
+
+            if (
+                (selectedGenre === "" || genre === selectedGenre) &&
+                (selectedLangue === "" || langue === selectedLangue)
+            ) {
+                film.style.display = "block";
+            } else {
+                film.style.display = "none";
+            }
+        });
+    }
+</script>

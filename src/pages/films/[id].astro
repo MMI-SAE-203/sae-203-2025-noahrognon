@@ -1,0 +1,81 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { getFilmById } from "../../../backend/backend.mjs";
+import Button from "../../components/Button.astro";
+
+const { id } = Astro.params;
+const film = await getFilmById(id);
+if (!film) {
+    throw new Error("Le film demandé n'existe pas ou a été supprimé.");
+}
+function formatDate(dateString) {
+    const date = new Date(dateString);
+    return date.toLocaleDateString("fr-FR", {
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+        hour: "2-digit",
+        minute: "2-digit",
+    });
+}
+---
+
+<Layout>
+    <section class="py-12 px-6 max-w-4xl mx-auto">
+        <div class="bg-white shadow-lg rounded-lg p-8 text-center">
+            <img
+                src={film.imageUrl}
+                alt={"Affiche de " + film.titre}
+                class="w-full max-w-xs h-auto rounded-lg shadow-md mx-auto"
+            />
+            <h2 class="text-3xl font-bold text-gray-900 mt-4">{film.titre}</h2>
+            <p class="text-gray-700 text-lg italic">{film.synopsis}</p>
+            <p class="mt-4 text-gray-800">
+                Date de sortie : {formatDate(film.date_sortie)}
+            </p>
+            <p class="mt-2 text-gray-800">Durée : {film.duree} minutes</p>
+            <p class="mt-2 text-gray-800">Langue : {film.langue}</p>
+            <p class="mt-2 text-gray-800">Production : {film.production}</p>
+            <p class="mt-2 text-gray-800">
+                Liste des acteurs {film.liste_acteurs}
+            </p>
+
+            <p class="mt-4 text-gray-800 font-bold">
+                Date de projection : {formatDate(film.date_projection)}
+            </p>
+            <h2>Bande d'annonce</h2>
+            {
+                film.bande_annonce && (
+                    <iframe
+                        width="560"
+                        height="315"
+                        class="mx-auto mt-4 w-full max-w-full sm:max-w-md md:max-w-lg lg:max-w-xl"
+                        src={film.bande_annonce}
+                        title="YouTube video player"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin"
+                        allowfullscreen
+                    />
+                )
+            }
+            {
+                film.invite ? (
+                    <div class="mt-6 bg-gray-100 p-4 rounded-lg shadow-md">
+                        <h3 class="text-xl font-semibold text-gray-900">
+                            Présenté par :
+                        </h3>
+                        <p class="text-gray-700">
+                            {film.invite.prenom} {film.invite.nom}
+                        </p>
+                    </div>
+                ) : (
+                    <p class="mt-4 text-gray-500 italic">
+                        Aucun invité associé.
+                    </p>
+                )
+            }
+        </div>
+        <Button link="/films" linkText="Retour aux films" class="mt-6" />
+    </section>
+</Layout>

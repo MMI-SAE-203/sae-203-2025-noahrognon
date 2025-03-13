@@ -1,4 +1,4 @@
-import { getFilms } from './backend.mjs';
+/*import { getFilms } from './backend.mjs';
 
 // Tester la récupération de tous les films
 try {
@@ -100,3 +100,14 @@ try {
 } catch (e) {
     console.error(e);
 }
+    */
+
+
+// Remplace par un ID valide d'invité
+import { getActivitesAndFilmsById } from './backend.mjs';
+const id = "4uy5r162x052300";
+
+(async () => {
+    const data = await getActivitesAndFilmsById(id);
+    console.log("🟢 Résultat de getActivitesAndFilmsById :", data);
+})();

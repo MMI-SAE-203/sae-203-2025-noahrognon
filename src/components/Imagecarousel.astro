@@ -1,0 +1,104 @@
+---
+import { Picture } from "astro:assets";
+import Image1 from "../assets/1carrousel.webp";
+import Image2 from "../assets/2carousel.webp";
+import Image3 from "../assets/3carousel.webp";
+import Image4 from "../assets/4carousel.webp";
+---
+
+<div class="relative mb-12">
+    <!-- Carrousel container -->
+    <div class="overflow-hidden w-full md:w-3/4 lg:w-1/2 mx-auto">
+        <div
+            class="flex transition-all duration-300 transform"
+            id="carousel-items"
+        >
+            <!-- Image items (add more images as needed) -->
+            <div class="flex-shrink-0 w-full px-2">
+                <Picture
+                    src={Image1}
+                    alt="Image 1"
+                    class="w-full h-64 object-cover rounded-lg shadow-lg"
+                />
+            </div>
+            <div class="flex-shrink-0 w-full px-2">
+                <Picture
+                    src={Image2}
+                    alt="Image 2"
+                    class="w-full h-64 object-cover rounded-lg shadow-lg"
+                />
+            </div>
+            <div class="flex-shrink-0 w-full px-2">
+                <Picture
+                    src={Image3}
+                    alt="Image 3"
+                    class="w-full h-64 object-cover rounded-lg shadow-lg"
+                />
+            </div>
+            <div class="flex-shrink-0 w-full px-2">
+                <Picture
+                    src={Image4}
+                    alt="Image 4"
+                    class="w-full h-64 object-cover rounded-lg shadow-lg"
+                />
+            </div>
+        </div>
+    </div>
+
+    <!-- Carousel controls -->
+    <button
+        id="prev"
+        class="absolute left-2 top-1/2 transform -translate-y-1/2 text-white bg-black bg-opacity-50 p-2 rounded-full"
+    >
+        &lt;
+    </button>
+    <button
+        id="next"
+        class="absolute right-2 top-1/2 transform -translate-y-1/2 text-white bg-black bg-opacity-50 p-2 rounded-full"
+    >
+        &gt;
+    </button>
+</div>
+
+<script>
+    // Récupération des éléments du DOM
+    const prevButton = document.getElementById("prev");
+    const nextButton = document.getElementById("next");
+    const carouselItems = document.getElementById("carousel-items");
+
+    let currentIndex = 0;
+    const totalItems = carouselItems.children.length;
+
+    prevButton.addEventListener("click", () => {
+        // Si on est au premier élément, on revient au dernier
+        if (currentIndex === 0) {
+            currentIndex = totalItems - 1;
+        } else {
+            currentIndex--;
+        }
+        updateCarousel();
+    });
+
+    nextButton.addEventListener("click", () => {
+        // Si on est au dernier élément, on revient au premier
+        if (currentIndex === totalItems - 1) {
+            currentIndex = 0;
+        } else {
+            currentIndex++;
+        }
+        updateCarousel();
+    });
+
+    function updateCarousel() {
+        carouselItems.style.transform = `translateX(-${currentIndex * 100}%)`;
+
+        // Mise à jour des indicateurs
+        const indicators = document.querySelectorAll(
+            ".absolute.bottom-4.left-1/2 .w-3",
+        );
+        indicators.forEach((indicator, index) => {
+            indicator.classList.toggle("opacity-100", index === currentIndex);
+            indicator.classList.toggle("opacity-50", index !== currentIndex);
+        });
+    }
+</script>

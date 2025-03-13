@@ -25,11 +25,11 @@
         @apply text-2xl lg:text-4xl font-bold text-[#806B13] mb-2 font-sans p-6 ml-8 text-center;
     }
     h3 {
-        @apply text-xl lg:text-3xl font-bold text-[#806B13] mb-2 font-sans p-6 ml-8 text-center;
+        @apply text-xl lg:text-3xl font-bold text-[#806B13] mb-2 font-sans p-6 ml-8 text-center ;
     }
         a {
             @apply hover:text-blue-900 font-sans;
         }
         p {
-            @apply text-lg lg:text-xl text-black mb-4 font-sans  text-center;
+            @apply text-lg lg:text-xl text-black mb-4 font-sans  text-center font-sans;
         }

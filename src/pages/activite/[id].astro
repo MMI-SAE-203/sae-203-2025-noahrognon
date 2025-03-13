@@ -1,0 +1,55 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { getActiviteById } from "../../../backend/backend.mjs";
+import Button from "../../components/Button.astro";
+
+const { id } = Astro.params;
+const activite = await getActiviteById(id);
+---
+
+<Layout>
+    <section class="py-12 px-6 max-w-3xl mx-auto">
+        <div class="bg-white shadow-lg rounded-lg p-6 text-center">
+            <h2 class="text-3xl font-bold text-gray-900 mt-4">
+                {activite.titre}
+            </h2>
+            <p class="text-gray-700 text-lg italic">{activite.type}</p>
+
+            <p class="mt-4 text-gray-600">
+                {
+                    new Date(activite.date_heure).toLocaleString("fr-FR", {
+                        weekday: "long",
+                        year: "numeric",
+                        month: "long",
+                        day: "numeric",
+                        hour: "2-digit",
+                        minute: "2-digit",
+                    })
+                }
+            </p>
+
+            <p class="mt-4 text-gray-600">{activite.description}</p>
+            {
+                activite.invite ? (
+                    <div class="mt-6 bg-gray-100 p-4 rounded-lg shadow-md">
+                        <h3 class="text-xl font-semibold text-gray-900">
+                            Animé par :
+                        </h3>
+                        <p class="text-gray-700">
+                            {activite.invite.prenom} {activite.invite.nom}
+                        </p>
+                    </div>
+                ) : (
+                    <p class="mt-4 text-gray-500 italic">
+                        Aucun invité associé.
+                    </p>
+                )
+            }
+            <Button
+                link="/activite"
+                linkText="Retour aux activités"
+                class="mt-6"
+            />
+        </div>
+    </section></Layout
+>

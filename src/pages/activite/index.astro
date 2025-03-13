@@ -1,0 +1,63 @@
+---
+import { getActivites } from "../../../backend/backend.mjs";
+import Layout from "../../layouts/Layout.astro";
+import ActiviteCard from "../../components/ActiviteCard.astro";
+
+const activites = await getActivites();
+const types = [...new Set(activites.map((a) => a.type))];
+---
+
+<Layout>
+    <section class="py-12 px-6 bg-[#FAF7E7]">
+        <h2 class="text-3xl font-bold text-center text-blue-900 mb-8">
+            Nos Activités
+        </h2>
+
+        <!-- Filtres -->
+        <div class="flex justify-center gap-4 mb-8">
+            <select id="filter-type" class="border p-2 rounded-lg">
+                <option value="">Tous les types</option>
+                {types.map((type) => <option value={type}>{type}</option>)}
+            </select>
+        </div>
+
+        <div
+            id="activites-container"
+            class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto"
+        >
+            {
+                activites.map((activite) => (
+                    <ActiviteCard
+                        id={activite.id}
+                        titre={activite.titre}
+                        date={activite.date_heure}
+                        type={activite.type}
+                    />
+                ))
+            }
+        </div>
+    </section>
+</Layout>
+
+<script>
+    document
+        .getElementById("filter-type")
+        .addEventListener("change", (event) => {
+            filterActivites();
+        });
+
+    function filterActivites() {
+        const selectedType = document.getElementById("filter-type").value;
+        const activites = document.querySelectorAll("#activites-container a");
+
+        activites.forEach((activite) => {
+            const type = activite.getAttribute("data-type");
+
+            if (selectedType === "" || type === selectedType) {
+                activite.style.display = "block";
+            } else {
+                activite.style.display = "none";
+            }
+        });
+    }
+</script>
