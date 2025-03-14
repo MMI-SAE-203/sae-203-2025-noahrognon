@@ -43,6 +43,9 @@ export async function getInvites() {
         const records = await pb.collection('Invite').getFullList({
             sort: 'nom',
         });
+        records.forEach((invite) => {
+            film.imageUrl = pb.files.getURL(invite, invite.photo);
+        });
         console.log("Invités récupérés :", records);
         return records;
     } catch (error) {
