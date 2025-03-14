@@ -44,7 +44,7 @@ export async function getInvites() {
             sort: 'nom',
         });
         records.forEach((invite) => {
-            film.imageUrl = pb.files.getURL(invite, invite.photo);
+            invite.imageUrl = pb.files.getURL(invite, invite.photo);
         });
         console.log("Invités récupérés :", records);
         return records;
