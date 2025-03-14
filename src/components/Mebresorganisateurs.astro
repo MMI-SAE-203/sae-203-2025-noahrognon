@@ -3,58 +3,22 @@ const { membres } = Astro.props;
 ---
 
 <section class="py-12 px-6 text-center bg-[#FAF7E7]">
-    <h2 class="text-3xl font-bold text-yellow-600 mb-8">
-        Membres Organisateurs
-    </h2>
+    <h2 class="text-3xl font-bold text-yellow-600 mb-8">Membres Organisateurs</h2>
 
     <div class="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
-        <div class="flex flex-col items-center">
-            <img
-                src="/public/equipe1.jpg"
-                alt="Nom Membre 1"
-                class="w-24 h-24 md:w-32 md:h-32 rounded-full object-cover shadow-md"
-            />
-            <p class="mt-4 text-lg font-semibold text-gray-900">Léo Martin</p>
-            <p class="text-gray-700 text-sm md:text-base">
-                Coordinateur logistique
-            </p>
-        </div>
-        <div class="flex flex-col items-center">
-            <img
-                src="/public/equipe2.jpg"
-                alt="Nom Membre 2"
-                class="w-24 h-24 md:w-32 md:h-32 rounded-full object-cover shadow-md"
-            />
-            <p class="mt-4 text-lg font-semibold text-gray-900">
-                Antoine Lambert
-            </p>
-            <p class="text-gray-700 text-sm md:text-base">
-                Responsable des partenariats
-            </p>
-        </div>
-        <div class="flex flex-col items-center">
-            <img
-                src="/public/equipe3.jpg"
-                alt="Nom Membre 3"
-                class="w-24 h-24 md:w-32 md:h-32 rounded-full object-cover shadow-md"
-            />
-            <p class="mt-4 text-lg font-semibold text-gray-900">Luc Dubois</p>
-            <p class="text-gray-700 text-sm md:text-base">
-                Directeur artistique
-            </p>
-        </div>
-        <div class="flex flex-col items-center">
-            <img
-                src="/public/equipe4.jpg"
-                alt="Nom Membre 4"
-                class="w-24 h-24 md:w-32 md:h-32 rounded-full object-cover shadow-md"
-            />
-            <p class="mt-4 text-lg font-semibold text-gray-900">
-                Sofia Bernard
-            </p>
-            <p class="text-gray-700 text-sm md:text-base">
-                Chargée de communication
-            </p>
-        </div>
+        {membres.map((membre) => (
+            <div class="flex flex-col items-center">
+                <!-- Photo du membre -->
+                <img 
+                    src={membre.photo} 
+                    alt={membre.nom} 
+                    class="w-24 h-24 md:w-32 md:h-32 rounded-full object-cover shadow-md"
+                />
+                <!-- Nom du membre -->
+                <p class="mt-4 text-lg font-semibold text-gray-900">{membre.nom}</p>
+                <!-- Rôle du membre -->
+                <p class="text-gray-700 text-sm md:text-base">{membre.role}</p>
+            </div>
+        ))}
     </div>
 </section>
